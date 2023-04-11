@@ -1,6 +1,8 @@
 const vendingMachine = require("../src/vending-machine.js")
 const testing = require("../lib/testing.js") 
 
+const messagePart = "vending machine should return ";
+
 const testingvendingMachine = function() {
 	testing.assertTest(1, vendingMachine.determineOptimumCoinCount(1), "vending machine should return one coin for one rupee")
 	testing.assertTest(1, vendingMachine.determineOptimumCoinCount(2), "vending machine should return one coin for two rupees")
@@ -9,6 +11,12 @@ const testingvendingMachine = function() {
 	testing.assertTest(2, vendingMachine.determineOptimumCoinCount(6), "vending machine should return two coins for six rupees")
 	testing.assertTest(2, vendingMachine.determineOptimumCoinCount(7), "vending machine should return two coins for seven rupees")
 	testing.assertTest(3, vendingMachine.determineOptimumCoinCount(8), "vending machine should return three coins for eight rupees")
+	testing.assertTest(1, vendingMachine.determineOptimumCoinCount(10), "vending machine should return one coin for ten rupees")
+	testing.assertTest(2, vendingMachine.determineOptimumCoinCount(11), "vending machine should return two coins for eleven rupees")
+	testing.assertTest(2, vendingMachine.determineOptimumCoinCount(12), "vending machine should return two coins for tweleve rupees")
+	testing.assertTest(3, vendingMachine.determineOptimumCoinCount(13), "vending machine should return three coins for thirteen rupees")
+	testing.assertTest(2, vendingMachine.determineOptimumCoinCount(15), "vending machine should return two coins for fifteen rupees")
+	testing.assertTest(2, vendingMachine.determineOptimumCoinCount(20), "vending machine should return two coins for twenty rupees")
 
 }
 testingvendingMachine();

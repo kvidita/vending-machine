@@ -1,4 +1,5 @@
-const add = function(a, b) {
-	return a + b;
+
+const vendingMachine = function(amount) {
+	return amount / 1;
 }
-exports.add = add;
+exports.vendingMachine = vendingMachine;

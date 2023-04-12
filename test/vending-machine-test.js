@@ -3,6 +3,9 @@ const testing = require("../lib/testing.js")
 const dispenseCoins = vendingMachine.dispenseCoins;
 const assert = testing.assert;
 const indexOfMax = vendingMachine.indexOfMax;
+const removeElement = vendingMachine.removeElement;
+const assertArraysEqual = testing.assertArraysEqual;
+const sortArray = vendingMachine.sortArray;
 
 const testingVendingMachine = function() {
 	assert(1, dispenseCoins([1], 1), "for amount of 1 and denomination of 1 the machine should dispense 1 coin")
@@ -18,14 +21,13 @@ const testingVendingMachine = function() {
 	assert(2, dispenseCoins([1, 3, 7, 11], 18), "for amount of 18 and denominations of 1, 3, 7 and 11 the machine should dispense 2 coins")
 	assert(2, dispenseCoins([3, 5, 7], 10), "for amount of 10 and denominations of 3, 5 and 7 the machine should dispense 2 coins")
 	assert(4, dispenseCoins([1, 4, 7], 13), "for amount of 13 and denominations of 1, 4 and 7 the machine should dispense 4 coins")
-	// assert(5, dispenseCoins([3, 1, 7], 12), "for amount of 12 and denominations of 3, 1 and 7 the machine should dispense 5 coins")
+	assert(4, dispenseCoins([3, 1, 7], 12), "for amount of 12 and denominations of 3, 1 and 7 the machine should dispense 5 coins")
 }
 
 testingVendingMachine();
 
-const testingIndexOfMax = function() {
-	assert(1, indexOfMax([1,4,3,2]), "index of max should be 1")
-	assert(6, indexOfMax([1,4,3,2,8,2,9,0]), "index of max should be 6")
+const testingSortArray = function() {
+	assertArraysEqual([1,2,3], sortArray([1,3,2]), "for given array[1,3,2], sorted array should be [1,3,2]");
 }
 
-testingIndexOfMax();
+testingSortArray();

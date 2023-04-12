@@ -16,7 +16,7 @@ const testingVendingMachine = function() {
 	assert(5, dispenseCoins([1, 2, 5, 10], 28), "for amount of 28 and denominations of 1, 2, 5 and 10 the machine should dispense 5 coins")
 	assert(2, dispenseCoins([1, 3, 7, 11], 18), "for amount of 18 and denominations of 1, 3, 7 and 11 the machine should dispense 2 coins")
 	assert(2, dispenseCoins([3, 5, 7], 10), "for amount of 10 and denominations of 3, 5 and 7 the machine should dispense 2 coins")
-	assert(3, dispenseCoins([1, 5, 7], 13), "for amount of 13 and denominations of 1, 5 and 7 the machine should dispense 3 coins")
+	assert(4, dispenseCoins([1, 4, 7], 13), "for amount of 13 and denominations of 1, 4 and 7 the machine should dispense 4 coins")
 }
 
 testingVendingMachine();

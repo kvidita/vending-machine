@@ -1,4 +1,4 @@
-
+/*
 const determineOptimumCoinCount = function(amount) {
 	let coinCount = 0;
 	let amountLeft = amount;
@@ -12,3 +12,19 @@ const determineOptimumCoinCount = function(amount) {
 	return coinCount ;
 }
 exports.determineOptimumCoinCount = determineOptimumCoinCount;
+ */
+
+
+const determineOptimumCoinCount = function(denominations, amount) {
+	let coinCount = 0;
+	let amountLeft = amount;
+	for (let count = denominations.length - 1; count >= 0; count--) {
+		coinCount = coinCount + Math.floor(amountLeft/denominations[count]);
+		amountLeft = amountLeft % denominations[count];
+	}
+	return coinCount;
+}
+
+exports.determineOptimumCoinCount = determineOptimumCoinCount;
+
+

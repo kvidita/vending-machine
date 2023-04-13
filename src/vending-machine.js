@@ -1,21 +1,7 @@
-const sortArray = function(arr) {
-	const array = arr;
-	for (let count = 0; count < array.length; count++) {
-		for (let index = 0; index < array.length; index++) {
-			if (array[index] > array[index + 1]) {
-				const	swapingNum = array[index];
-				array[index] = array[index + 1];
-				array[index + 1] = swapingNum;
-			}
-		}
-	}
-	return array;
-}
-
-exports.sortArray = sortArray;
+const sortarray = require("./sorting.js");
 
 const dispenseCoins = function(denominations, amount) {
-	const arrangedDenominations = sortArray(denominations);
+	const arrangedDenominations = sortarray.sortArray(denominations);
 	let coinCount = 0;
 	let amountLeft = amount;
 
@@ -27,6 +13,38 @@ const dispenseCoins = function(denominations, amount) {
 
 }
 
+
+const division = function(divident, divisor) {
+	return Math.floor(divident/divisor);
+}
+
+const remainder = function(divident, divisor) {
+	return divident % divisor;
+}
+
+
+const coinCount = function(denominationList, amount) {
+	let denominations = sortarray.sortArray(denominationList);
+	let denominationsCount = {};
+	let amountLeft = amount;
+
+	for (let count = denominations.length - 1; count >= 0; count--){
+		denominationsCount[denominations[count]] = division(amountLeft, denominations[count]);	
+		amountLeft = remainder(amountLeft, denominations[count]);
+	}
+
+	return denominationsCount;
+}
+
 exports.dispenseCoins = dispenseCoins;
+exports.coinCount = coinCount;
 
 
+
+/*
+const objectToArray = function(object) {
+
+
+}
+
+ */
